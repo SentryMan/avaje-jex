@@ -48,6 +48,12 @@
       <optional>true</optional>
     </dependency>
 
+    <dependency>
+      <groupId>io.github.robaho</groupId>
+      <artifactId>httpserver</artifactId>
+      <version>1.0.9</version>
+    </dependency>
+
   </dependencies>
 
   <build>
