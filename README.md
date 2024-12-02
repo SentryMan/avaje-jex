@@ -48,7 +48,7 @@ An example would be [@robaho's implementation](https://github.com/robaho/httpser
 <dependency>
   <groupId>io.avaje</groupId>
   <artifactId>avaje-jex</artifactId>
-  <version>3.0-RC3</version>
+  <version>3.0-RC7</version>
 </dependency>
 
 <dependency>
@@ -67,7 +67,7 @@ If you find yourself pining for the JAX-RS style of controllers, you can have av
 <dependency>
   <groupId>io.avaje</groupId>
   <artifactId>avaje-jex</artifactId>
-  <version>3.0-RC3</version>
+  <version>3.0-RC7</version>
 </dependency>
 
 <dependency>
@@ -79,7 +79,7 @@ If you find yourself pining for the JAX-RS style of controllers, you can have av
 <!-- Annotation processor -->
 <dependency>
   <groupId>io.avaje</groupId>
-  <artifactId>avaje-http-sigma-generator</artifactId>
+  <artifactId>avaje-http-jex-generator</artifactId>
   <version>2.9-RC3</version>
   <scope>provided</scope>
   <optional>true</optional>
