@@ -8,15 +8,12 @@ import io.avaje.http.api.Client;
 import io.avaje.inject.test.InjectTest;
 import jakarta.inject.Inject;
 
-/**
- * A `@Client` interface lives in src/main - not usually expected.
- */
-@Client.Import(types =HelloApi.class)
+/** A `@Client` interface lives in src/main - not usually expected. */
+@Client.Import(types = HelloApi.class)
 @InjectTest
 class HelloClientInterfaceInMainTest {
 
-  @Inject
-  static HelloApi client;
+  @Inject static HelloApi client;
 
   @Test
   void hello() {
