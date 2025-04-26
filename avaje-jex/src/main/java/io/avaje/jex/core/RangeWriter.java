@@ -44,17 +44,10 @@ final class RangeWriter {
       contentLength = totalBytes - from;
     }
 
-    final HttpStatus status;
-    if (audioOrVideo) {
-      status = HttpStatus.PARTIAL_CONTENT_206;
-    } else {
-      status = HttpStatus.OK_200;
-    }
+    final HttpStatus status = audioOrVideo ? HttpStatus.PARTIAL_CONTENT_206 : HttpStatus.OK_200;
 
-    ctx.status(status);
-    ctx.header(Constants.ACCEPT_RANGES, "bytes");
     ctx.header(Constants.CONTENT_RANGE, "bytes " + from + "-" + to + "/" + totalBytes);
-    ctx.contentLength(contentLength);
+    ctx.status(status).contentLength(contentLength);
     try (var os = ctx.outputStream()) {
       write(os, inputStream, from, to);
     } catch (IOException e) {
@@ -62,7 +55,8 @@ final class RangeWriter {
     }
   }
 
-  private static void write(OutputStream outputStream, InputStream inputStream, long from, long to) throws IOException {
+  private static void write(OutputStream outputStream, InputStream inputStream, long from, long to)
+      throws IOException {
     byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
     long toSkip = from;
     while (toSkip > 0) {
